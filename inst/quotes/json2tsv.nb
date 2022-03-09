@@ -1,0 +1,214 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7714,        206]
+NotebookOptionsPosition[      5633,        162]
+NotebookOutlinePosition[      6045,        178]
+CellTagsIndexPosition[      6002,        175]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+covert https://github.com/dwyl/quotes/raw/main/quotes.json to tsv\
+\>", "Section",
+ CellChangeTimes->{{3.855802635649247*^9, 3.855802651904352*^9}, {
+  3.855803899874363*^9, 
+  3.855803904417096*^9}},ExpressionUUID->"5b98ce8a-6d3f-4fe5-bc44-\
+ed1b1c6c2445"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"raw", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<https://github.com/dwyl/quotes/raw/main/quotes.json\>\"", ",", 
+     "\"\<JSON\>\""}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.855802673630452*^9, 3.855802692681452*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"444277ee-380b-4327-acf1-25070c1fd7d8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"raw", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8558026968117123`*^9, 3.8558026988203125`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"2f097193-ac20-4abe-bbff-7fad139effb3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"author\"\>", "\[Rule]", "\<\"Abraham Lincoln\"\>"}], ",", 
+   RowBox[{"\<\"text\"\>", 
+    "\[Rule]", "\<\"A house divided against itself cannot stand.\"\>"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.855802699522047*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"e61f8948-8003-4471-91c7-b9d4d412e17a"]
+}, Open  ]],
+
+Cell["transform the data to \[OpenCurlyDoubleQuote]quote\
+\[CloseCurlyDoubleQuote] and \[CloseCurlyDoubleQuote]author\
+\[CloseCurlyDoubleQuote]", "Text",
+ CellChangeTimes->{{3.855802861973671*^9, 
+  3.855802899439762*^9}},ExpressionUUID->"fbdd9e1d-8bb3-4adb-9856-\
+182a6247f572"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ndata", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<text\>\"", ",", "\"\<author\>\""}], "}"}], "/.", "#"}], 
+      "&"}], ")"}], "/@", "raw"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.855802773623019*^9, 3.8558028565114994`*^9}, 
+   3.855802903621375*^9},
+ CellLabel->"In[3]:=",ExpressionUUID->"c555b121-17a5-4a05-8c50-bf6d5a104d13"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "@", "ndata"}]], "Input",
+ CellChangeTimes->{{3.8558029282886825`*^9, 3.855802930161893*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"dbfc820a-ea34-4cd4-bc90-3a5b36ea5d5e"],
+
+Cell[BoxData["1621"], "Output",
+ CellChangeTimes->{3.8558029304938607`*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"644c0b04-7156-4a61-b93f-aabfac1eadec"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ndata", "[", 
+  RowBox[{"[", "230", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.855802906977517*^9, 3.85580292234006*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"5cfa3309-34e2-4f0f-b7c1-255eb2c9480c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"To keep the body in good health is a duty... otherwise we \
+shall not be able to keep our mind strong and clear.\"\>", 
+   ",", "\<\"Buddha\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{{3.855802909305314*^9, 3.855802922656371*^9}, 
+   3.8558035065113688`*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"50433819-e152-45ec-ab09-779032c824c4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "@", 
+  RowBox[{"NotebookDirectory", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.855803005098257*^9, 3.855803010714435*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"aa3456c2-be58-407e-be31-a9b61c0552a9"],
+
+Cell[BoxData["\<\"D:\\\\Data-Work\\\\R-Project\\\\quotesyR\\\\inst\\\\quotes\"\
+\>"], "Output",
+ CellChangeTimes->{3.8558030136065164`*^9, 3.8558034464964914`*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"02632341-0cb8-4ced-b8b0-8d6023fcd902"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<quotes.tsv\>\"", ",", "ndata", ",", "\"\<TSV\>\"", ",", 
+   RowBox[{"\"\<TextDelimiters\>\"", "->", "\"\<\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.855803015512458*^9, 3.8558030385385137`*^9}, {
+  3.855803908410824*^9, 3.8558039085440445`*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"a3636803-fea0-466b-a23d-1bc1759e4ce6"],
+
+Cell[BoxData["\<\"quotes.tsv\"\>"], "Output",
+ CellChangeTimes->{3.8558030408314023`*^9, 3.8558039109779844`*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"295f8857-ea17-41b4-be0e-e9be7b5b38aa"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"WriteString", "[", 
+  RowBox[{"\"\<test.dat\>\"", ",", "ndata"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8558035587399273`*^9, 3.85580356931936*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"7744f07a-b01c-47cd-bcc0-d058c2231741"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<quotes.csv\>\"", ",", "ndata", ",", "\"\<CSV\>\"", ",", 
+   RowBox[{"\"\<TextDelimiters\>\"", "->", "\"\<\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.855803015512458*^9, 3.8558030385385137`*^9}, {
+  3.855803908410824*^9, 3.8558039085440445`*^9}, {3.855803969898677*^9, 
+  3.855803972563693*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"50b6e414-c2dc-4cd7-8981-f102f89376dd"],
+
+Cell[BoxData["\<\"quotes.csv\"\>"], "Output",
+ CellChangeTimes->{3.855803976116482*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"64a5a757-e4a9-4909-8bdd-6ca0d4df9400"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{569.25, 624.75},
+WindowMargins->{{Automatic, 133.5}, {97.5, Automatic}},
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (December 2, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ad8ceb91-d5ee-484f-85f7-6739597776b4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 267, 6, 143, "Section",ExpressionUUID->"5b98ce8a-6d3f-4fe5-bc44-ed1b1c6c2445"],
+Cell[850, 30, 352, 8, 67, "Input",ExpressionUUID->"444277ee-380b-4327-acf1-25070c1fd7d8"],
+Cell[CellGroupData[{
+Cell[1227, 42, 227, 4, 28, "Input",ExpressionUUID->"2f097193-ac20-4abe-bbff-7fad139effb3"],
+Cell[1457, 48, 358, 8, 52, "Output",ExpressionUUID->"e61f8948-8003-4471-91c7-b9d4d412e17a"]
+}, Open  ]],
+Cell[1830, 59, 279, 5, 35, "Text",ExpressionUUID->"fbdd9e1d-8bb3-4adb-9856-182a6247f572"],
+Cell[2112, 66, 432, 12, 28, "Input",ExpressionUUID->"c555b121-17a5-4a05-8c50-bf6d5a104d13"],
+Cell[CellGroupData[{
+Cell[2569, 82, 204, 3, 28, "Input",ExpressionUUID->"dbfc820a-ea34-4cd4-bc90-3a5b36ea5d5e"],
+Cell[2776, 87, 153, 2, 32, "Output",ExpressionUUID->"644c0b04-7156-4a61-b93f-aabfac1eadec"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2966, 94, 226, 4, 28, "Input",ExpressionUUID->"5cfa3309-34e2-4f0f-b7c1-255eb2c9480c"],
+Cell[3195, 100, 381, 7, 94, "Output",ExpressionUUID->"50433819-e152-45ec-ab09-779032c824c4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3613, 112, 243, 4, 28, "Input",ExpressionUUID->"aa3456c2-be58-407e-be31-a9b61c0552a9"],
+Cell[3859, 118, 241, 3, 32, "Output",ExpressionUUID->"02632341-0cb8-4ced-b8b0-8d6023fcd902"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4137, 126, 383, 6, 28, "Input",ExpressionUUID->"a3636803-fea0-466b-a23d-1bc1759e4ce6"],
+Cell[4523, 134, 191, 2, 32, "Output",ExpressionUUID->"295f8857-ea17-41b4-be0e-e9be7b5b38aa"]
+}, Open  ]],
+Cell[4729, 139, 251, 4, 28, "Input",ExpressionUUID->"7744f07a-b01c-47cd-bcc0-d058c2231741"],
+Cell[CellGroupData[{
+Cell[5005, 147, 432, 7, 28, "Input",ExpressionUUID->"50b6e414-c2dc-4cd7-8981-f102f89376dd"],
+Cell[5440, 156, 165, 2, 32, "Output",ExpressionUUID->"64a5a757-e4a9-4909-8bdd-6ca0d4df9400"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
