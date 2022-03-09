@@ -1,8 +1,16 @@
 # return a random quote
 
-PATH2QUOTES<-paste0(system.file(package='quotesyR'),"/quotes/quotes.tsv")
+INSPIRING.Path <- paste0(system.file(package='quotesyR'),"/quotes/inspiring.dat")
+FUNNY.Path <- paste0(system.file(package='quotesyR'),"/quotes/funny.dat")
 
 
-random_quote <- function(){
-  gsub("[\r\n]", "", sample_lines(PATH2QUOTES,1))
+random_quote <- function(type = "inspiring"){
+
+  quote.txt <- switch (tolower(type),
+    "inspiring" = gsub("[\r\n]", "", sample_lines(INSPIRING.Path, 1)),
+    "funny" = gsub("[\r\n]", "", sample_lines(FUNNY.Path, 1))
+  )
+
+  return(quote.txt)
+
 }
