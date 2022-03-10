@@ -19,4 +19,4 @@ quotesy(type = "inspiring")
 
 quotesy(type = "funny")
 ```
-  
+![quotesy](quotesy.gif?raw=true "quotesy")
