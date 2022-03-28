@@ -21,7 +21,7 @@ quotesy(type = "funny")
 ```
 ![quotesy](quotesy.gif?raw=true "quotesy")
 
-If you would like to show a quote for when you open R/RStudio, you can just put these two lines into .Rprofile.
+If you would like to show a quote when you open R/RStudio, you can just put these two lines into .Rprofile.
 
 ```
 suppressWarnings(suppressPackageStartupMessages(library(quotesyR)))
